@@ -1,4 +1,4 @@
-import mongoose, { Schema, Document, Types } from 'mongoose';
+import mongoose, { Schema, Document, Types, ObjectId } from 'mongoose';
 
 interface Drone extends Document {
   serialNumber: string;
@@ -13,7 +13,7 @@ interface Medication extends Document {
   weight: number;
   code: string;
   image: string;
-  drone: Types.ObjectId;
+  drone: ObjectId;
 }
 
 const DroneSchema = new Schema<Drone>({
