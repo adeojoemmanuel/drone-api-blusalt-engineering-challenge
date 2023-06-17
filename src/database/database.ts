@@ -17,4 +17,3 @@ export function addMedication(medication: Medication): void {
   medications.push(medication);
 }
 
-// Implement other database operations as needed
