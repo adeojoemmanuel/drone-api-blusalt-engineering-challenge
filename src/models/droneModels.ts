@@ -4,12 +4,12 @@ interface Drone {
     weightLimit: number;
     batteryCapacity: number;
     state: "IDLE" | "LOADING" | "LOADED" | "DELIVERING" | "DELIVERED" | "RETURNING";
-  }
+}
   
-  interface Medication {
+interface Medication {
     name: string;
     weight: number;
     code: string;
     image: string;
-  }
+}
   
