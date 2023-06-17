@@ -1,19 +1,8 @@
-const drones: Drone[] = [];
-const medications: Medication[] = [];
+import mongoose from 'mongoose';
 
-export function getDrones(): Drone[] {
-  return drones;
-}
+const connectionString = process.env.MONGODB_URL || "";
 
-export function getMedications(): Medication[] {
-  return medications;
-}
+mongoose.connect(connectionString, {});
 
-export function addDrone(drone: Drone): void {
-  drones.push(drone);
-}
-
-export function addMedication(medication: Medication): void {
-  medications.push(medication);
-}
-
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
