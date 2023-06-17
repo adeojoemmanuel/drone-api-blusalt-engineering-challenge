@@ -1,4 +1,4 @@
-import mongoose, { Document } from 'mongoose';
+import mongoose, { Schema, Document, Types } from 'mongoose';
 
 interface Drone extends Document {
   serialNumber: string;
@@ -13,10 +13,10 @@ interface Medication extends Document {
   weight: number;
   code: string;
   image: string;
-  drone: mongoose.Types.ObjectId;
+  drone: Types.ObjectId;
 }
 
-const DroneSchema = new mongoose.Schema<Drone>({
+const DroneSchema = new Schema<Drone>({
   serialNumber: { type: String, required: true },
   model: { type: String, enum: ['Lightweight', 'Middleweight', 'Cruiserweight', 'Heavyweight'], required: true },
   weightLimit: { type: Number, required: true },
@@ -24,12 +24,12 @@ const DroneSchema = new mongoose.Schema<Drone>({
   state: { type: String, enum: ['IDLE', 'LOADING', 'LOADED', 'DELIVERING', 'DELIVERED', 'RETURNING'], required: true },
 });
 
-const MedicationSchema = new mongoose.Schema<Medication>({
+const MedicationSchema = new Schema<Medication>({
   name: { type: String, required: true },
   weight: { type: Number, required: true },
   code: { type: String, required: true },
   image: { type: String, required: true },
-  drone: { type: mongoose.Types.ObjectId, ref: 'Drone', required: true },
+  drone: { type: Types.ObjectId, ref: 'Drone', required: true },
 });
 
 export const DroneModel = mongoose.model<Drone>('Drone', DroneSchema);
