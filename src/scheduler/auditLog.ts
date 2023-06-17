@@ -1,7 +1,7 @@
-import { Document, Schema, model } from 'mongoose';
+import { Document, ObjectId, Schema, model } from 'mongoose';
 
 interface AuditLog extends Document {
-  droneId: string;
+  droneId: ObjectId;
   eventType: 'LOW_BATTERY' | 'LOADING' | 'DELIVERY_COMPLETED';
   timestamp: Date;
 }
