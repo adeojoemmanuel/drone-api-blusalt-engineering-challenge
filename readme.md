@@ -4,8 +4,8 @@ This repository contains a REST API for managing drones and medication delivery.
 
 ## Prerequisites
 
-- Node.js (version X.X.X or higher)
-- MongoDB (version X.X.X or higher)
+- Node.js (version 16.X.X or higher)
+- MongoDB (version 6.X.X or higher)
 
 ## Installation
 
@@ -55,8 +55,6 @@ To run the unit tests, use the following command:
 ## License
 This project is licensed under the MIT License.
 
-
-Make sure to replace "adeojoemmanuel" in the clone command with your actual GitHub username.
 
 This README provides an overview of the installation process, usage instructions, testing, contribution guidelines, and license information. Feel free to customize it based on your specific project requirements.
 
