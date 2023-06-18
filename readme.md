@@ -44,6 +44,35 @@ This repository contains a REST API for managing drones and medication delivery.
 
 ## Usage
     - API endpoints can be accessed using an HTTP client (e.g., cURL, Postman).
+
+    ``` 
+    {{baseurl}}/drones/register : registerDrone
+    {{baseurl}}/drones/load : loadDrone
+    {{baseurl}}/drones/:droneId/medications : getLoadedMedications
+    {{baseurl}}/drones/available: getAvailableDrones
+    {{baseurl}}/drones/:droneId/battery: getBatteryLevel 
+    ```
+
+    using this schema
+
+    ``` 
+        const DroneSchema = new Schema<Drone>({
+            serialNumber: { type: String, required: true },
+            model: { type: String, enum: ['Lightweight', 'Middleweight', 'Cruiserweight', 'Heavyweight'], required: true },
+            weightLimit: { type: Number, required: true },
+            batteryCapacity: { type: Number, required: true },
+            state: { type: String, enum: ['IDLE', 'LOADING', 'LOADED', 'DELIVERING', 'DELIVERED', 'RETURNING'], required: true },
+        });
+
+        const MedicationSchema = new Schema<Medication>({
+            name: { type: String, required: true },
+            weight: { type: Number, required: true },
+            code: { type: String, required: true },
+            image: { type: String, required: true },
+            drone: { type: Types.ObjectId, ref: 'Drone', required: true },
+        });
+    ```
+
     - Refer to the API documentation for detailed information on available endpoints and request/response formats.
 
 ## Testing
